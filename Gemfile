@@ -40,6 +40,8 @@ gem 'spring',        group: :development
 
 gem 'bootstrap-sass'
 gem 'high_voltage'
+gem 'google_drive'
+gem 'activerecord-tableless'
 
 group :development do
   gem 'better_errors'
