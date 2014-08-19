@@ -42,6 +42,7 @@ gem 'bootstrap-sass'
 gem 'high_voltage'
 gem 'google_drive'
 gem 'activerecord-tableless'
+gem 'simple_form'
 
 group :development do
   gem 'better_errors'
