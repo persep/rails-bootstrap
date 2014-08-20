@@ -41,5 +41,7 @@
     <%= f.error_notification %>
     <%= f.input :favorite, label: false, 
       :as => :radio_buttons_inline, :collection => Visitor::IMAGE_LABELS%>
+    <%= f.input :comment, label: false, :placeholder => 'Add a comment...' %>
+    <%= f.submit "Choose!", :class => "btn btn-primary"%>
 <% end %>
 </div>
