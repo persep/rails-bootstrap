@@ -8,8 +8,8 @@ class VisitorsController < ApplicationController
     @visitor = Visitor.new(secure_params)
     if @visitor.valid?
       @visitor.update_spreadsheet
-      flash.now[:notice] = "Chose #{@visitor.favorite}."
-      render :new
+      flash.now[:notice] = "Chose #{@visitor.favourite}."
+      redirect_to root_url
     else
       render :new
     end
@@ -18,7 +18,7 @@ class VisitorsController < ApplicationController
   private
 
   def secure_params
-    params.require(:visitor).permit(:favorite, :comment)
+    params.require(:visitor).permit(:favourite, :comment)
   end
 
 end

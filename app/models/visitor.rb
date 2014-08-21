@@ -1,10 +1,10 @@
 class Visitor < ActiveRecord::Base
 	has_no_table
 
-	column :favorite, :string
+	column :favourite, :string
 	column :comment, :string
 	
-	validates_presence_of :favorite
+	validates_presence_of :favourite
 	
 	IMAGE_LABELS = ['San Francisco', 'Sydney', 'Paris']
 
@@ -17,7 +17,7 @@ class Visitor < ActiveRecord::Base
 		ws = ss.worksheets[0]
 		last_row = 1 + ws.num_rows
 		ws[last_row, 1] = Time.now
-		ws[last_row, 2] = self.favorite
+		ws[last_row, 2] = self.favourite
 		ws[last_row, 3] = self.comment
 		ws.save
 	end

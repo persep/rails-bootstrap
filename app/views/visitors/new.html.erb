@@ -35,28 +35,34 @@
   </a>
 </div>
 
+
+
+
 <!-- Button trigger modal -->
 <div class="text-center">
-  <h5>Select a Favorite</h5>
+  <h5>Select a Favourite</h5>
   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
     Choose!
   </button>
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: <%= @visitor.errors.any? ? 'block' :
+'none';%>">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h3 class="modal-title" id="myModalLabel">Select a Favorite</h3>
+          <h3 class="modal-title" id="myModalLabel">Select a Favourite</h3>
         </div>
         <div class="modal-body">
+
           <div class="text-center">
             <%= simple_form_for @visitor, html: { class: 'form-horizontal' } do |f| %>
               <%= f.error_notification %>
-              <%= f.input :favorite, label: false, 
-              :as => :radio_buttons_inline, :collection => Visitor::IMAGE_LABELS%>
-              <%= f.input :comment, label: false, :placeholder => 'Add a comment...' %>
+              <%= f.input :favourite, label: false, 
+              as: :radio_buttons_inline, :collection => Visitor::IMAGE_LABELS,
+              wrapper_html: { class: 'form-group' }%>
+              <%= f.input :comment, label: false, placeholder: 'Add a comment...',input_html: { class: 'form-control' } %>
           </div>
         </div>
         <div class="modal-footer">
